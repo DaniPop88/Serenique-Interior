@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Refund Policy | SERENIQUE INTERIOR HAVEN</title>
+  <meta name="description" content="Understand our refund and cancellation process. SERENIQUE INTERIOR HAVEN aims to provide clarity and fairness for every customer order."/>
+  <link rel="icon" type="image/png" href="image/FAVICON.png"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Lora:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #705e48;
+      --accent: #c6a673;
+      --text: #3a2c1d;
+      --background: #f7f5f2;
+      --white: #fff;
+      --radius: 1.1rem;
+      --shadow: 0 8px 28px 0 rgba(112,94,72,0.11);
+      --footer-bg: #473a28;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+    a { color: var(--primary); text-decoration: none; transition: color .2s; }
+    a:hover { color: var(--accent); }
+    header {
+      width: 100%; background: var(--white); box-shadow: var(--shadow);
+      padding: 1.2rem 0 1.2rem 0; text-align: center;
+    }
+    .header-logo {
+      display: flex; align-items: center; justify-content: center; gap: 0.8rem; font-size: 1.35rem; font-weight: 900; color: var(--primary); letter-spacing: 1px;
+    }
+    .header-logo img { width: 38px; height: 38px; }
+    main {
+      max-width: 700px; margin: 0 auto; padding: 2.7rem 1.1rem 3rem 1.1rem;
+      background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); margin-top: 2rem;
+    }
+    h1 {
+      font-size: 2.1rem; font-weight: 900; color: var(--primary); font-family: 'Lora', serif; text-align: center; margin-bottom: 1.7rem;
+    }
+    h2 {
+      font-size: 1.19rem; color: var(--accent); margin-top: 2.2rem; margin-bottom: .7rem;
+    }
+    p {
+      font-size: 1.04rem; margin-bottom: 1.3rem; color: var(--text);
+    }
+    ul {
+      margin: 1.2rem 0 1.8rem 1.5rem;
+      font-size: 1.04rem;
+    }
+    ul li { margin-bottom: .8rem; }
+    .policy-section { margin-bottom: 2.1rem;}
+    .notice-block {
+      background: #f1ede8; border-radius: .7rem; padding: 1.2rem; text-align: center; color: var(--primary); font-size: .99rem;
+      margin-top: 2.2rem;
+    }
+    @media (max-width: 800px) {
+      main { padding: 1.1rem .5rem 2.1rem .5rem; }
+      h1 { font-size: 1.25rem; }
+    }
+    footer {
+      background: var(--footer-bg); color: var(--white); padding: 2rem 0 1.1rem; margin-top: 2.5rem; border-radius: var(--radius) var(--radius) 0 0;
+      text-align: center;
+    }
+    .footer-logo {
+      display: flex; align-items: center; font-size: 1.08rem; font-weight: 900; gap: .5rem; margin-bottom: 0.45rem; color: var(--accent); justify-content: center;
+    }
+    .footer-logo img { width: 24px; height: 24px; }
+    .footer-desc { color: #c6a673; font-size: 0.96rem; margin-bottom: .5rem;}
+    .footer-bottom { font-size: .93rem; color: #f2e9db; margin-top: 1.2rem; opacity: .85;}
+    .footer-bottom a { color: #fff; font-weight: 700; text-decoration: underline; transition: color .2s;}
+    .footer-bottom a:hover { color: var(--accent);}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-logo">
+      <img src="image/LOGO.png" alt="SERENIQUE INTERIOR HAVEN Logo"/>
+      SERENIQUE INTERIOR HAVEN
+    </div>
+  </header>
+  <main>
+    <h1>Refund & Cancellation Policy</h1>
+    <div class="policy-section">
+      <p>
+        Our goal is to ensure every customer feels supported and confident when ordering from SERENIQUE INTERIOR HAVEN. We have designed our refund and cancellation process to be straightforward and fair, respecting both our clients and the craftsmanship of our products.
+      </p>
+    </div>
+    <div class="policy-section">
+      <h2>Order Cancellations</h2>
+      <ul>
+        <li>Cancellations for standard stock items may be accepted prior to dispatch. Please notify us as soon as possible if you wish to cancel your order.</li>
+        <li>Custom or made-to-order pieces require a 30% deposit. Once production has begun, cancellations may be subject to partial charges to cover materials and labor already incurred.</li>
+      </ul>
+    </div>
+    <div class="policy-section">
+      <h2>Refunds & Returns</h2>
+      <ul>
+        <li>If you are not satisfied with your purchase, please contact us within 7 days of delivery to discuss a return or exchange.</li>
+        <li>Refunds or replacements for stock items will be processed once the product is returned in its original condition.</li>
+        <li>Custom or personalized items may not be eligible for full refunds unless there is a clear defect or error on our part.</li>
+      </ul>
+    </div>
+    <div class="policy-section">
+      <h2>How to Request a Refund</h2>
+      <ol style="margin: 1.2rem 0 1.7rem 2.1rem; font-size:1.04rem;">
+        <li>Contact our team at <a href="mailto:contact@sereniqueinterior.living">contact@sereniqueinterior.living</a> or call <a href="tel:+639196872451">+63 919 687 2451</a> with your order number and reason for return.</li>
+        <li>We will review your request and guide you through the next steps, including product pickup or drop-off arrangements.</li>
+        <li>Refunds are issued via your original payment method after inspection and approval.</li>
+      </ol>
+    </div>
+    <div class="policy-section">
+      <h2>Exceptions</h2>
+      <ul>
+        <li>Sale items, clearance products, and items damaged by misuse are not eligible for refund.</li>
+        <li>Delivery and installation charges are non-refundable once services have been rendered.</li>
+      </ul>
+    </div>
+    <div class="notice-block">
+      We value transparency and are committed to resolving concerns promptly.<br>
+      For full refund policy details, please request a written copy.<br><br>
+      Thank you for choosing SERENIQUE INTERIOR HAVEN.
+    </div>
+  </main>
+  <footer>
+    <div class="footer-logo">
+      <img src="image/LOGO.png" alt="SERENIQUE INTERIOR HAVEN Logo"/>
+      SERENIQUE INTERIOR HAVEN
+    </div>
+    <div class="footer-desc">
+      Pulo 1, Brgy. 8, Cavite City, Cavite, 4100, Philippines<br>
+      BIR/VAT: 968-371-502-000 • Domain: sereniqueinterior.living
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="footer-year"></span> SERENIQUE INTERIOR HAVEN. All rights reserved.
+    </div>
+    <script>
+      document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>
