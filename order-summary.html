@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Summary | SERENIQUE INTERIOR HAVEN</title>
+  <meta name="description" content="Order summary and next steps for your purchase at SERENIQUE INTERIOR HAVEN. Confirmation, team assistance, and secure payment guidance."/>
+  <link rel="icon" type="image/png" href="image/FAVICON.png"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Lora:wght@400;700&display=swap" rel="stylesheet"/>
+  <!-- Remixicon for icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #705e48;
+      --accent: #c6a673;
+      --text: #3a2c1d;
+      --background: #f7f5f2;
+      --white: #fff;
+      --radius: 1.1rem;
+      --shadow: 0 8px 28px 0 rgba(112,94,72,0.11);
+      --border: 1px solid #e7e1d6;
+      --footer-bg: #473a28;
+      --section-bg: #f1ede8;
+      --link-hover: #c6a673;
+      --success: #57b178;
+      --warning: #e19a3b;
+      --error: #e14d4d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+    a {
+      color: var(--primary); text-decoration: none; transition: color .2s;
+    }
+    a:hover { color: var(--link-hover);}
+    img { max-width: 100%; display: block; border-radius: .7rem;}
+    button, input {
+      font-family: inherit; outline: none; border: none; background: none;
+    }
+    /* Header */
+    .header {
+      width: 100%; background: var(--white); box-shadow: var(--shadow);
+      position: sticky; top: 0; z-index: 99;
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1220px; margin: 0 auto; padding: 1.2rem 2rem;
+      position: relative;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.8rem; font-size: 1.45rem; font-weight: 900; color: var(--primary); letter-spacing: 1px;
+    }
+    .nav-logo img { width: 44px; height: 44px; }
+    .nav-list {
+      display: flex; align-items: center; gap: 2rem;
+    }
+    .nav-link {
+      color: var(--text); font-weight: 700; font-size: 1rem; padding: 0.2rem 0;
+      position: relative; transition: color .2s;
+    }
+    .nav-link.active, .nav-link:hover { color: var(--primary);}
+    .nav-actions { display: flex; align-items: center; gap: 1.2rem;}
+    .nav-contact {
+      font-size: 0.98rem; color: var(--accent); margin-left: 2rem; display: flex; align-items: center; gap: 1rem;
+    }
+    /* Main Content */
+    main { max-width: 600px; margin: 0 auto; padding: 2.5rem 1.1rem 2.5rem;}
+    .summary-card {
+      background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 2.1rem 1.7rem 2.5rem;
+      margin-bottom: 2.1rem; margin-top: 2.1rem;
+    }
+    .summary-header {
+      text-align: center; margin-bottom: 2.1rem;
+    }
+    .summary-title {
+      font-size: 2.1rem; font-weight: 900; color: var(--primary); font-family: 'Lora', serif; margin-bottom: .6rem;
+    }
+    .summary-success {
+      color: var(--success); font-size: 1.08rem; font-weight: 700; margin-bottom: .4rem;
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
+    }
+    .summary-desc {
+      color: #705e48; font-size: 1.1rem; margin-bottom: 1.3rem; text-align: center;
+    }
+    .order-details-table {
+      width: 100%; border-radius: .7rem; border: var(--border); overflow: hidden; background: var(--section-bg);
+      margin-bottom: 2rem; font-size: 1.02rem;
+    }
+    .order-details-table th, .order-details-table td {
+      padding: .9rem 1rem; text-align: left;
+    }
+    .order-details-table th {
+      background: var(--accent); color: var(--white); font-weight: 700;
+    }
+    .order-details-table tr:not(:last-child) td {
+      border-bottom: var(--border);
+    }
+    .order-details-table td {
+      background: var(--white);
+    }
+    .important-note {
+      color: var(--warning); font-size: 1.05rem; font-weight: 700;
+      margin: 1rem 0 1.5rem 0; text-align: center;
+    }
+    .instructions-list {
+      margin: 1.2rem 0 0 0; padding-left: 1.4rem; font-size: 1.04rem; color: var(--text);
+    }
+    .instructions-list li {
+      margin-bottom: .8rem;
+    }
+    .confirmation-block {
+      background: var(--section-bg); border-radius: var(--radius); padding: 1.5rem 1.1rem; margin-top: 2.2rem; text-align: center;
+      box-shadow: 0 2px 10px 0 rgba(112,94,72,0.07);
+    }
+    .confirmation-title {
+      font-size: 1.22rem; font-weight: 700; color: var(--primary); margin-bottom: .5rem;
+    }
+    .confirmation-message {
+      font-size: 1.08rem; color: #705e48; margin-bottom: .5rem;
+    }
+    .confirmation-warning {
+      color: var(--error); font-size: 1rem; font-weight: 700; margin-top: .7rem;
+    }
+    .contact-details {
+      margin: 1.7rem 0 .6rem 0; font-size: .99rem; text-align: center; color: #a88a5b;
+    }
+    .btn-home {
+      display: inline-block; margin-top: 1.5rem; padding: 0.8rem 2.2rem; border-radius: .7rem; font-weight: 700; font-size: 1.08rem;
+      background: var(--accent); color: var(--white); border: none; text-decoration: none; transition: background .2s;
+      box-shadow: 0 2px 8px 0 rgba(112,94,72,0.09);
+    }
+    .btn-home:hover { background: var(--primary); color: var(--accent);}
+    /* Footer */
+    .footer {
+      background: var(--footer-bg); color: var(--white); padding: 2.5rem 0 1.1rem; margin-top: 2.5rem; border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .footer-container {
+      max-width: 800px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-start; padding: 0 2rem;
+    }
+    .footer-brand { flex: 1 1 220px; margin-bottom: 2rem;}
+    .footer-logo {
+      display: flex; align-items: center; font-size: 1.2rem; font-weight: 900; gap: .5rem; margin-bottom: 0.45rem; color: var(--accent);
+    }
+    .footer-logo img { width: 32px; height: 32px; }
+    .footer-desc { color: #c6a673; font-size: 0.98rem; margin-bottom: .6rem;}
+    .footer-links-group { flex: 1 1 120px; margin-bottom: 2rem;}
+    .footer-links-title { font-size: 1rem; font-weight: 900; margin-bottom: .35rem; letter-spacing: .5px;}
+    .footer-links { display: flex; flex-direction: column; gap: .35rem;}
+    .footer-link { color: #f2e9db; font-size: .96rem; transition: color .2s; opacity: .94;}
+    .footer-link:hover { color: var(--accent);}
+    .footer-bottom { text-align: center; font-size: .95rem; color: #f2e9db; margin-top: 1.5rem; opacity: .85;}
+    .footer-bottom a { color: #fff; font-weight: 700; text-decoration: underline; transition: color .2s;}
+    .footer-bottom a:hover { color: var(--accent);}
+    @media (max-width: 900px) {
+      .footer-container { flex-direction: column; gap: 2.2rem; align-items: flex-start; }
+      main { padding: 1.2rem .5rem 2.2rem;}
+    }
+    @media (max-width: 700px) {
+      .nav { padding: 1.1rem .7rem;}
+      .footer-container { padding: 0 1rem; }
+    }
+    @media (max-width: 480px) {
+      .summary-title { font-size: 1.35rem;}
+      main { padding: 1rem .2rem 1.3rem;}
+      .footer { padding: .8rem 0 .7rem;}
+      .summary-card { padding: 1.1rem .5rem 1.6rem;}
+    }
+    @media (max-width: 430px) {
+      .footer-logo img { width: 24px; height: 24px;}
+      .order-details-table th, .order-details-table td { padding: .7rem .2rem;}
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav">
+      <a href="index.html" class="nav-logo">
+        <img src="image/LOGO.png" alt="SERENIQUE INTERIOR HAVEN Logo"/>
+        SERENIQUE INTERIOR HAVEN
+      </a>
+      <ul class="nav-list" id="nav-list" style="display:none;">
+        <!-- Navigation intentionally hidden for order summary page -->
+      </ul>
+      <div class="nav-actions">
+        <div class="nav-contact">
+          <i class="ri-phone-line"></i> +63 919 687 2451
+          <i class="ri-mail-send-line"></i> <a href="mailto:contact@sereniqueinterior.living">contact@sereniqueinterior.living</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="summary-card">
+      <div class="summary-header">
+        <div class="summary-title">Order Successfully Submitted</div>
+        <div class="summary-success"><i class="ri-checkbox-circle-line"></i>Thank you for your purchase!</div>
+        <div class="summary-desc">
+          Your order has been received by our team.<br>
+          We’re excited to help you create a space that feels truly yours.
+        </div>
+      </div>
+      <table class="order-details-table">
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="order-items">
+          <!-- Order items will appear here -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3" style="text-align:right; font-weight:700;">Order Total</td>
+            <td id="order-total" style="font-weight:900; color:var(--primary);"></td>
+          </tr>
+        </tfoot>
+      </table>
+      <div class="important-note">
+        One of our team members will be in touch soon to confirm your order details. <br>
+        Please review your product selections, colors, and delivery preferences with our staff when contacted.
+      </div>
+      <ul class="instructions-list">
+        <li>A Serenique Interior Haven representative will reach out to you via phone or email to finalize your order.</li>
+        <li>During this step, we’ll confirm colors, stock availability, and any custom requests.</li>
+        <li>Once verified, we will send you a secure payment link based on your chosen payment method.</li>
+        <li><span style="color:var(--error);font-weight:700;">Please complete payment within 24 hours</span> from receiving the link to avoid automatic cancellation of your order.</li>
+        <li>Our team is here to support you and answer any questions throughout the process.</li>
+      </ul>
+      <div class="confirmation-block" id="confirmation-block">
+        <div class="confirmation-title"><i class="ri-user-heart-line"></i> Next Steps</div>
+        <div class="confirmation-message">
+          We appreciate your trust in us. <br>
+          Kindly respond promptly once you receive our confirmation message so we can proceed with your order efficiently.
+        </div>
+        <div class="confirmation-warning">
+          Orders not paid within 24 hours of confirmation may be subject to cancellation.
+        </div>
+      </div>
+      <div class="contact-details">
+        Questions or need support?<br>
+        Call us: <a href="tel:+639196872451">+63 919 687 2451</a> | Email: <a href="mailto:contact@sereniqueinterior.living">contact@sereniqueinterior.living</a>
+      </div>
+      <a href="index.html" class="btn-home"><i class="ri-arrow-left-line"></i> Back to Home</a>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="image/LOGO.png" alt="SERENIQUE INTERIOR HAVEN Logo"/>
+          SERENIQUE INTERIOR HAVEN
+        </div>
+        <div class="footer-desc">
+          Pulo 1, Brgy. 8, Cavite City, Cavite, 4100, Philippines<br>
+          Email: <a href="mailto:contact@sereniqueinterior.living" style="color:var(--accent);">contact@sereniqueinterior.living</a><br>
+          Phone: <a href="tel:+639196872451" style="color:var(--accent);">+63 919 687 2451</a><br>
+          BIR/VAT: 968-371-502-000<br>Domain: sereniqueinterior.living
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-links-title">Company</div>
+        <div class="footer-links">
+          <a href="index.html#about" class="footer-link">About Us</a>
+          <a href="index.html#services" class="footer-link">Services</a>
+          <a href="index.html#contact" class="footer-link">Contact</a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-links-title">Help</div>
+        <div class="footer-links">
+          <a href="index.html#testimonials" class="footer-link">Testimonials</a>
+          <a href="index.html#faq" class="footer-link">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-links-title">Legal</div>
+        <div class="footer-links">
+          <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+          <a href="terms.html" class="footer-link">Terms of Service</a>
+          <a href="refund-policy.html" class="footer-link">Refund Policy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="footer-year"></span> SERENIQUE INTERIOR HAVEN — Pulo 1, Brgy. 8, Cavite City • +63 919 687 2451 • contact@sereniqueinterior.living<br>
+      BIR/VAT: 968-371-502-000 • Domain: sereniqueinterior.living<br>
+      <span style="font-size:.90rem;opacity:.85;">Demo photos may show styled spaces for illustrative purposes. Actual finishes and textiles vary.</span>
+    </div>
+  </footer>
+  <script>
+    // Footer year
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+    // Example order items -- should be replaced by actual order data in production
+    // This is for demo only; in production, fetch from localStorage, backend, or session
+    const orderItemsDemo = [
+      { name: "Custom Sofa", qty: 1, price: 18999.00 },
+      { name: "Accent Chair", qty: 2, price: 6399.00 },
+      { name: "Bamboo Pendant Lamp", qty: 1, price: 2799.00 }
+    ];
+    function renderOrderItems(items) {
+      const orderItems = document.getElementById("order-items");
+      const orderTotal = document.getElementById("order-total");
+      let total = 0;
+      orderItems.innerHTML = "";
+      items.forEach(item => {
+        const subtotal = item.qty * item.price;
+        total += subtotal;
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${item.name}</td>
+          <td>${item.qty}</td>
+          <td>₱${item.price.toLocaleString(undefined,{minimumFractionDigits:2})}</td>
+          <td>₱${subtotal.toLocaleString(undefined,{minimumFractionDigits:2})}</td>
+        `;
+        orderItems.appendChild(tr);
+      });
+      orderTotal.textContent = "₱" + total.toLocaleString(undefined,{minimumFractionDigits:2});
+    }
+    // For actual use, replace orderItemsDemo with real order data
+    renderOrderItems(orderItemsDemo);
+  </script>
+</body>
+</html>
