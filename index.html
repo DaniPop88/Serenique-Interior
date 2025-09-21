@@ -252,16 +252,12 @@
         <img src="image/LOGO.png" alt="SERENIQUE INTERIOR HAVEN Logo"/>
         SERENIQUE INTERIOR HAVEN
       </a>
+      <!-- Custom nav-list: ONLY Home, Products, About Us, Services -->
       <ul class="nav-list" id="nav-list">
         <li><a href="index.html" class="nav-link active">Home</a></li>
         <li><a href="#shop" class="nav-link">Products</a></li>
         <li><a href="#about" class="nav-link">About Us</a></li>
         <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-        <li><a href="#delivery" class="nav-link">Delivery</a></li>
-        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-        <li><a href="#faq" class="nav-link">FAQ</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
         <button class="nav-close" id="nav-close" aria-label="Close menu"><i class="ri-close-line"></i></button>
       </ul>
       <div class="nav-actions">
@@ -649,37 +645,37 @@
         id: 1,
         name: "Custom Sofa",
         price: 18999.00,
-        img: "image/PICTURES .png"
+        img: "image/PICTURES 1.png"
       },
       {
         id: 2,
         name: "Solid Wood Dining Table",
         price: 12490.00,
-        img: "image/PICTURES .png"
+        img: "image/PICTURES 2.png"
       },
       {
         id: 3,
         name: "Accent Chair",
         price: 6399.00,
-        img: "image/PICTURES .png"
+        img: "image/PICTURES 3.png"
       },
       {
         id: 4,
         name: "Modular Wardrobe",
         price: 17990.00,
-        img: "image/PICTURES .png"
+        img: "image/PICTURES 4.png"
       },
       {
         id: 5,
         name: "Woven Cushion Cover",
         price: 499.00,
-        img: "image/PICTURES .png"
+        img: "image/PICTURES 5.png"
       },
       {
         id: 6,
         name: "Bamboo Pendant Lamp",
         price: 2799.00,
-        img: "image/PICTURES .png"
+        img: "image/PICTURES 6.png"
       }
     ];
 
@@ -802,6 +798,7 @@
 
     // Checkout button - redirect to order-summary.html
     checkoutBtn && checkoutBtn.addEventListener('click', function() {
+      localStorage.setItem('checkoutCart', JSON.stringify(cart));
       window.location.href = "order-summary.html";
     });
   </script>
