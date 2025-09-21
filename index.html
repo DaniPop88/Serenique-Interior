@@ -42,8 +42,15 @@
     }
     /* Header */
     .header {
-      width: 100%; background: var(--white); box-shadow: var(--shadow);
-      position: sticky; top: 0; z-index: 99;
+      width: 100%;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 99999;
+      transition: none;
+      will-change: unset;
     }
     .nav {
       display: flex; align-items: center; justify-content: space-between;
@@ -70,6 +77,45 @@
     .nav-contact {
       font-size: 0.98rem; color: var(--accent); margin-left: 2rem; display: flex; align-items: center; gap: 1rem;
     }
+    /* Responsive Burger Menu */
+    @media (max-width: 900px) {
+      .nav-list {
+        position: fixed;
+        top: 0;
+        right: -100vw;
+        width: 80vw;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        gap: 1.6rem;
+        padding-top: 5rem;
+        z-index: 120;
+        transition: right .25s;
+        box-shadow: -2px 0 18px 0 rgba(112,94,72,0.09);
+        align-items: flex-start;
+      }
+      .nav-list.open { right: 0;}
+      .nav-toggle { display: block;}
+      .nav-close {
+        display: none;
+      }
+      .nav-list .nav-close {
+        display: block;
+        position: absolute;
+        top: 1.1rem;
+        right: 1.3rem;
+        background: none;
+        border: none;
+        font-size: 1.7rem; color: var(--primary); cursor: pointer; z-index: 999;
+      }
+      .nav-contact {
+        display: none;
+      }
+    }
+    @media (max-width: 600px) {
+      .nav { padding: 1.1rem .7rem;}
+    }
+
     /* Floating Cart Button */
     .floating-cart-btn {
       position: fixed; left: 30px; bottom: 30px; z-index: 150;
@@ -207,33 +253,12 @@
       .hero-img { margin: 1.5rem auto 0 auto;}
     }
     @media (max-width: 900px) {
-      .nav-list { gap: 1.1rem; }
       .footer-container { flex-direction: column; gap: 2.2rem; align-items: flex-start; }
     }
     @media (max-width: 700px) {
-      .nav { padding: 1.1rem .7rem;}
       .main { padding: 1.2rem .5rem 2rem;}
       .products-grid { gap: .7rem;}
       .footer-container { padding: 0 1rem; }
-      .nav-list {
-        position: fixed; top: 0; right: -100vw; width: 80vw; height: 100vh; background: var(--white);
-        flex-direction: column; gap: 1.6rem; padding-top: 4rem; z-index: 120; transition: right .25s;
-        box-shadow: -2px 0 18px 0 rgba(112,94,72,0.09);
-      }
-      .nav-list.open { right: 0;}
-      .nav-toggle { display: block;}
-      .nav-close {
-        display: none;
-      }
-      .nav-list .nav-close {
-        display: block;
-        position: absolute;
-        top: 1.1rem;
-        right: 1.3rem;
-        background: none;
-        border: none;
-        font-size: 1.7rem; color: var(--primary); cursor: pointer; z-index: 999;
-      }
     }
     @media (max-width: 600px) {
       .hero { padding: 1rem .6rem;}
@@ -242,6 +267,15 @@
     @media (max-width: 430px) {
       .cart-sidebar { width: 98vw; padding: 1rem .5rem;}
       .footer-logo img { width: 24px; height: 24px;}
+    }
+    /* Body padding for sticky header */
+    body {
+      padding-top: 85px;
+    }
+    @media (max-width: 900px) {
+      body {
+        padding-top: 80px;
+      }
     }
   </style>
 </head>
@@ -636,6 +670,11 @@
     navClose && navClose.addEventListener('click', () => { navList.classList.remove('open'); });
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => navList.classList.remove('open'));
+    });
+
+    // Prevent header scroll/shift (always fixed)
+    window.addEventListener('scroll', function() {
+      // No-op: CSS handles sticky/fixed header.
     });
 
     // Cart functionality
