@@ -143,7 +143,193 @@
       }
     }
 
-    /* --- HERO AND MAIN SECTIONS --- */
+    /* Floating Cart Button */
+    .floating-cart-btn {
+      position: fixed;
+      left: 32px;
+      bottom: 32px;
+      z-index: 150;
+      background: var(--primary);
+      color: var(--light);
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.1rem;
+      box-shadow: 0 2px 14px 0 rgba(160,130,92,0.13);
+      cursor: pointer;
+      border: none;
+      transition: background .2s, color .2s, box-shadow .2s;
+      outline: none;
+    }
+    .floating-cart-btn:hover {
+      background: var(--secondary);
+      color: var(--primary);
+    }
+    #cart-badge {
+      position:absolute;
+      top:8px;
+      right:8px;
+      background:var(--secondary);
+      color:var(--primary);
+      font-size:.9rem;
+      font-weight:700;
+      border-radius:50%;
+      padding:2px 8px;
+      min-width:24px;
+      text-align:center;
+      display:none
+    }
+    @media (max-width: 500px) {
+      .floating-cart-btn {
+        left: 10px;
+        bottom: 10px;
+        width: 44px;
+        height: 44px;
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Cart Sidebar */
+    .cart-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(160,130,92,0.12);
+      z-index: 100;
+      display: none;
+    }
+    .cart-overlay.active { display: block; }
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 360px;
+      max-width: 99vw;
+      height: 100%;
+      background: var(--light);
+      box-shadow: -2px 0 20px 0 rgba(160,130,92,0.14);
+      z-index: 101;
+      padding: 2.2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: right .28s;
+      overflow-y: auto;
+    }
+    .cart-sidebar.open { right: 0; }
+    .cart-sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    .cart-sidebar-title {
+      font-size: 1.18rem;
+      font-weight: 900;
+      color: var(--primary);
+    }
+    .cart-sidebar-close {
+      font-size: 1.7rem;
+      color: var(--primary);
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color .2s;
+    }
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+    .cart-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-bottom: 1px solid #e5c9a5;
+      padding-bottom: 1rem;
+    }
+    .cart-item-img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      border-radius: .6rem;
+      background: #f4e6d1;
+    }
+    .cart-item-details { flex: 1; }
+    .cart-item-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: .15rem;
+    }
+    .cart-item-price {
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: .12rem;
+      font-size: 0.97rem;
+    }
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      margin-top: .18rem;
+    }
+    .cart-item-qty-btn {
+      font-size: 1.06rem;
+      background: var(--light);
+      border-radius: .3rem;
+      padding: 2px 7px;
+      cursor: pointer;
+      color: var(--primary);
+      border: 1px solid var(--secondary);
+      transition: background .2s, color .2s;
+    }
+    .cart-item-qty-btn:hover {
+      background: var(--primary);
+      color: var(--light);
+    }
+    .cart-item-remove {
+      color: #b94c23;
+      font-size: 1.13rem;
+      margin-left: .5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color .2s;
+    }
+    .cart-sidebar-footer {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+    .cart-sidebar-footer .checkout-btn {
+      padding: 0.62rem 1.32rem;
+      background: var(--primary);
+      color: var(--light);
+      border-radius: .55rem;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .cart-sidebar-footer .checkout-btn:hover {
+      background: var(--secondary);
+      color: var(--primary);
+    }
+    @media (max-width: 430px) {
+      .cart-sidebar {
+        width: 99vw;
+        padding: 1.05rem .55rem;
+      }
+    }
+
+    /* --- Rest as before --- */
     main {
       max-width: 1145px;
       margin: 0 auto;
@@ -283,8 +469,6 @@
       color: #6a563b;
       font-size: 1.01rem;
     }
-
-    /* --- PRODUCT GRID --- */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -378,8 +562,6 @@
       letter-spacing: 1px;
       box-shadow: 0 2px 9px 0 rgba(229,201,165,0.08);
     }
-
-    /* --- POLICY --- */
     .policy-sections {
       display: flex;
       flex-wrap: wrap;
@@ -414,8 +596,6 @@
     @media (max-width: 600px) {
       .policy-card { padding: 1.05rem .55rem; }
     }
-
-    /* --- FOOTER --- */
     .footer {
       background: var(--primary);
       color: var(--light);
@@ -546,6 +726,28 @@
       </div>
     </nav>
   </header>
+
+  <!-- Floating Cart Button -->
+  <button class="floating-cart-btn" id="cart-btn" aria-label="Open cart">
+    <i class="ri-shopping-bag-3-line"></i>
+    <span id="cart-badge"></span>
+  </button>
+
+  <!-- Cart Sidebar & Overlay -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-sidebar" id="cart-sidebar" aria-label="Shopping cart">
+    <div class="cart-sidebar-header">
+      <div class="cart-sidebar-title">My Cart</div>
+      <button class="cart-sidebar-close" id="cart-close-btn" aria-label="Close cart"><i class="ri-close-line"></i></button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <!-- Cart items will be rendered here by JS -->
+    </div>
+    <div class="cart-sidebar-footer">
+      <span><span id="cart-items-count">0</span> items | <span id="cart-total">₱0</span></span>
+      <button class="checkout-btn" id="checkout-btn">Checkout</button>
+    </div>
+  </aside>
 
   <main>
     <!-- Hero Section -->
@@ -831,6 +1033,32 @@
       { id: 6, name: "Decorative Wall Mirror", price: 2199.00, img: "image/PICTURES 6.png" },
       { id: 7, name: "Ceramic Tableware Set", price: 1799.00, img: "image/PICTURES 7.png" }
     ];
+    // Cart Sidebar reference
+    const cartBtn = document.getElementById('cart-btn');
+    const cartSidebar = document.getElementById('cart-sidebar');
+    const cartCloseBtn = document.getElementById('cart-close-btn');
+    const cartOverlay = document.getElementById('cart-overlay');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartItemsCount = document.getElementById('cart-items-count');
+    const cartTotal = document.getElementById('cart-total');
+    const checkoutBtn = document.getElementById('checkout-btn');
+    const cartBadge = document.getElementById('cart-badge');
+
+    function openCart() {
+      cartSidebar.classList.add('open');
+      cartOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCart() {
+      cartSidebar.classList.remove('open');
+      cartOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    cartBtn && cartBtn.addEventListener('click', openCart);
+    cartCloseBtn && cartCloseBtn.addEventListener('click', closeCart);
+    cartOverlay && cartOverlay.addEventListener('click', closeCart);
+
+    // Add to cart logic
     document.querySelectorAll('.product-add').forEach((btn, idx) => {
       btn.addEventListener('click', function() {
         const card = btn.closest('.product-card');
@@ -873,10 +1101,55 @@
       renderCart();
     }
     function renderCart() {
-      // No cart sidebar in this version as per screenshot, but function included for completeness
+      cartItemsContainer.innerHTML = '';
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<div style="text-align:center;color:#aaa;font-size:1rem;">Your cart is empty.</div>';
+      } else {
+        cart.forEach(item => {
+          const div = document.createElement('div');
+          div.className = 'cart-item';
+          div.innerHTML = `
+            <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+            <div class="cart-item-details">
+              <div class="cart-item-title">${item.name}</div>
+              <div class="cart-item-price">₱${item.price.toLocaleString()}</div>
+              <div class="cart-item-qty">
+                <button class="cart-item-qty-btn" aria-label="Decrease quantity"><i class="ri-subtract-line"></i></button>
+                <span>${item.qty}</span>
+                <button class="cart-item-qty-btn" aria-label="Increase quantity"><i class="ri-add-line"></i></button>
+                <button class="cart-item-remove" aria-label="Remove item"><i class="ri-delete-bin-6-line"></i></button>
+              </div>
+            </div>
+          `;
+          div.querySelector('.cart-item-qty-btn[aria-label="Decrease quantity"]').addEventListener('click', function() {
+            decreaseQty(item.id);
+          });
+          div.querySelector('.cart-item-qty-btn[aria-label="Increase quantity"]').addEventListener('click', function() {
+            increaseQty(item.id);
+          });
+          div.querySelector('.cart-item-remove').addEventListener('click', function() {
+            removeItem(item.id);
+          });
+          cartItemsContainer.appendChild(div);
+        });
+      }
+      const totalQty = cart.reduce((total, i) => total + i.qty, 0);
+      cartItemsCount.textContent = totalQty;
+      cartTotal.textContent = '₱' + cart.reduce((total, i) => total + i.qty * i.price, 0).toLocaleString(undefined, {minimumFractionDigits: 2});
+      if (totalQty > 0) {
+        cartBadge.textContent = totalQty;
+        cartBadge.style.display = 'block';
+      } else {
+        cartBadge.style.display = 'none';
+      }
     }
     renderCart();
     document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    checkoutBtn && checkoutBtn.addEventListener('click', function() {
+      localStorage.setItem('checkoutCart', JSON.stringify(cart));
+      window.location.href = "order-summary.html";
+    });
   </script>
 </body>
 </html>
