@@ -3,415 +3,574 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Order Confirmation — Serenique Interior Haven</title>
-  <meta name="description" content="Thank you for shopping with Serenique Interior Haven. Review your order summary, confirm your details, and learn about our secure payment and order confirmation process."/>
-  <link rel="icon" type="image/png" href="image/LOGO.png"/>
-  <!-- Google Fonts: Montserrat & Lora -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Lora:wght@400;700&display=swap" rel="stylesheet"/>
-  <!-- Remixicon for icons -->
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+  <title>Order Summary | Serenique Interior Haven</title>
+  <link rel="icon" type="image/png" href="image/FAVICON.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
   <style>
     :root {
-      --primary: #705e48;
-      --accent: #c6a673;
-      --text: #3a2c1d;
-      --background: #f7f5f2;
-      --white: #fff;
-      --radius: 1.1rem;
-      --shadow: 0 8px 28px 0 rgba(112,94,72,0.11);
-      --border: 1px solid #e7e1d6;
-      --footer-bg: #473a28;
-      --section-bg: #f1ede8;
-      --link-hover: #c6a673;
-      --success: #46bc7b;
-      --danger: #e14d4d;
+      --primary: #b29272;
+      --accent: #fff4e3;
+      --dark: #3d3324;
+      --light: #fdfaf6;
+      --secondary: #e5c9a5;
+      --radius: 1.4rem;
+      --shadow: 0 8px 36px 0 rgba(160,130,92,0.18);
+      --error: #e05b5b;
+      --success: #50b47b;
     }
+    html { scroll-behavior: smooth; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Montserrat', Arial, sans-serif;
-      background: var(--background);
-      color: var(--text);
+      background: var(--light);
+      color: var(--dark);
       min-height: 100vh;
       line-height: 1.7;
-      padding-top: 80px;
+      padding: 0;
     }
     a {
-      color: var(--primary); text-decoration: none; transition: color .2s;
+      color: var(--primary);
+      text-decoration: none;
+      transition: color .2s;
     }
-    a:hover { color: var(--link-hover);}
-    img { max-width: 100%; display: block; border-radius: .7rem;}
-    button, input {
-      font-family: inherit; outline: none; border: none; background: none;
+    a:hover { color: #c1a16b; }
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: .7rem;
     }
-    .header {
+    button, input, select {
+      font-family: inherit;
+      outline: none;
+      border: none;
+      background: none;
+    }
+    header {
       width: 100%;
-      background: var(--white);
+      background: rgba(255,252,247,0.96);
       box-shadow: var(--shadow);
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      z-index: 99999;
+      z-index: 99;
+      backdrop-filter: blur(8px);
     }
     .nav {
-      display: flex; align-items: center; justify-content: space-between;
-      max-width: 1220px; margin: 0 auto; padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 1.15rem 2.1rem;
       position: relative;
     }
     .nav-logo {
-      display: flex; align-items: center; gap: 0.8rem; font-size: 1.45rem; font-weight: 900; color: var(--primary); letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-    .nav-logo img { width: 44px; height: 44px; }
-
-    @media (max-width: 900px) {
-      .nav { padding: 1.1rem .7rem;}
-    }
-
-    /* Main Content */
-    main {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 2.2rem 1rem 3rem 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2.2rem;
-    }
-    .summary-container {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 2.3rem 2.3rem 2.5rem 2.3rem;
-      margin-bottom: 1.3rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.4rem;
-    }
-    .summary-header {
       display: flex;
       align-items: center;
-      gap: 1.1rem;
-      margin-bottom: .8rem;
+      gap: 1rem;
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: 1.3px;
+      font-family: 'Playfair Display', serif;
     }
-    .summary-header .ri-checkbox-circle-fill {
-      color: var(--success);
-      font-size: 1.8rem;
+    .nav-logo img {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 2px 8px 0 rgba(160,130,92,0.11);
+    }
+    main {
+      max-width: 640px;
+      margin: 2.1rem auto 0 auto;
+      background: var(--accent);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.2rem 2.1rem 2.5rem;
     }
     .summary-title {
-      font-size: 1.55rem;
-      font-family: 'Lora', serif;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
       font-weight: 900;
-      color: var(--primary);
-      margin-bottom: .3rem;
-    }
-    .summary-desc {
-      font-size: 1.08rem;
-      color: #705e48;
-      margin-bottom: .2rem;
-    }
-    .order-list {
-      background: var(--section-bg);
-      border-radius: .7rem;
-      padding: 1.3rem 1.2rem;
-      margin-bottom: .9rem;
-      box-shadow: 0 4px 18px 0 rgba(112,94,72,0.05);
-    }
-    .order-list-title {
-      font-size: 1.12rem;
-      font-weight: 700;
       color: var(--primary);
       margin-bottom: .7rem;
-    }
-    .order-items-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: .8rem;
-    }
-    .order-items-table th,
-    .order-items-table td {
-      padding: 0.5rem 0.3rem;
-      text-align: left;
-      font-size: 1rem;
-    }
-    .order-items-table th {
-      color: var(--accent);
-      font-weight: 700;
-      border-bottom: 1px solid #e7e1d6;
-    }
-    .order-items-table td {
-      color: var(--text);
-      border-bottom: 1px solid #f4ede7;
-    }
-    .order-items-table tr:last-child td {
-      border-bottom: none;
-    }
-    .order-totals {
-      display: flex;
-      justify-content: flex-end;
-      font-size: 1.06rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-top: .7rem;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .order-totals .label {
-      color: #705e48;
-      font-weight: 700;
-      margin-right: 0.6rem;
-    }
-    /* Steps */
-    .steps-container {
-      margin: 1rem 0 0 0;
-      padding: 1.3rem 1.2rem 1.2rem 1.2rem;
-      background: var(--section-bg);
-      border-radius: .7rem;
-      box-shadow: 0 4px 18px 0 rgba(112,94,72,0.04);
-    }
-    .steps-title {
-      color: var(--primary);
-      font-size: 1.09rem;
-      font-weight: 700;
-      margin-bottom: 0.7rem;
-      letter-spacing: 0.5px;
-    }
-    .steps-list {
-      list-style: none;
-      margin: 0;
-      padding: 0 0 0 1.1rem;
-      counter-reset: step;
-    }
-    .steps-list li {
-      margin-bottom: 1.1rem;
-      position: relative;
-      padding-left: 1.5rem;
-      font-size: 1.01rem;
-    }
-    .steps-list li:before {
-      counter-increment: step;
-      content: counter(step) ".";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: 900;
-      font-size: 1.02rem;
-    }
-    .steps-list li:last-child { margin-bottom: 0; }
-    .steps-highlight {
-      background: var(--accent);
-      color: var(--white);
-      padding: 0.16rem 0.6rem;
-      border-radius: 0.4rem;
-      margin-left: .22rem;
-      font-size: .96rem;
-      font-weight: 700;
-      letter-spacing: 0.7px;
-    }
-    /* Confirmation Message */
-    .confirmation-message {
-      display: none;
-      background: #e6f7ef;
-      border: 1px solid #97e7c7;
-      color: #2b7a54;
-      padding: 1.1rem .9rem;
-      border-radius: .8rem;
-      font-size: 1.07rem;
-      font-weight: 700;
-      box-shadow: 0 2px 14px 0 rgba(112,94,72,.06);
-      margin-bottom: 1.2rem;
+      letter-spacing: 1.1px;
       text-align: center;
     }
-    .show {
-      display: block !important;
+    .summary-desc {
+      text-align: center;
+      color: #6a563b;
+      font-size: 1.13rem;
+      margin-bottom: 2.2rem;
     }
-    /* Confirmation Button */
-    .confirm-btn {
+    .cart-summary-section {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 12px 0 rgba(160,130,92,0.08);
+      margin-bottom: 2rem;
+      padding: 1.5rem 1.3rem 1rem 1.3rem;
+    }
+    .cart-list {
       width: 100%;
-      padding: 0.98rem 2rem;
-      background: var(--accent);
-      color: var(--white);
-      border-radius: .7rem;
+      border-collapse: collapse;
+      margin-bottom: 1.1rem;
+    }
+    .cart-list th, .cart-list td {
+      padding: 0.53rem 0.4rem;
+      text-align: left;
+      font-size: 1.045rem;
+    }
+    .cart-list th {
+      color: var(--primary);
       font-weight: 900;
-      font-size: 1.09rem;
-      cursor: pointer;
-      box-shadow: 0 2px 8px 0 rgba(112,94,72,0.08);
-      border: none;
-      margin-top: 1.6rem;
-      margin-bottom: .1rem;
-      transition: background .2s, color .2s, box-shadow .2s;
+      border-bottom: 2px solid var(--secondary);
+      background: var(--accent);
+      font-family: 'Poppins', sans-serif;
     }
-    .confirm-btn:hover {
+    .cart-list td {
+      border-bottom: 1px solid #f1e3d1;
+      vertical-align: middle;
+    }
+    .cart-list img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      border-radius: .55rem;
+      background: #f8e3c9;
+    }
+    .cart-list tfoot td {
+      font-weight: 900;
+      color: var(--primary);
+      border-bottom: none;
+      font-size: 1.15rem;
+    }
+    .empty-cart-row td {
+      text-align: center;
+      color: #aaa;
+      font-size: 1.05rem;
+      padding: 1.2rem 0;
+      border-bottom: none;
+    }
+    .checkout-form-section {
+      margin-bottom: 2rem;
+    }
+    .form-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: .7rem;
+      letter-spacing: .2px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .checkout-form-group {
+      margin-bottom: 1.12rem;
+    }
+    .checkout-form-label {
+      display: block;
+      font-size: 1.01rem;
+      font-weight: 700;
+      margin-bottom: .39rem;
+      color: var(--dark);
+    }
+    .checkout-form-input, .checkout-form-select, .checkout-form-textarea {
+      width: 100%;
+      padding: 0.72rem .9rem;
+      border-radius: .51rem;
+      border: 1px solid #e5c9a5;
+      font-size: 1.04rem;
+      background: #fff;
+      color: var(--dark);
+      transition: border .2s;
+      resize: none;
+    }
+    .checkout-form-input:focus, .checkout-form-select:focus, .checkout-form-textarea:focus {
+      border: 1.5px solid var(--primary);
+      background: #fffdf8;
+    }
+    .checkout-btn-submit {
+      margin-top: .7rem;
       background: var(--primary);
-      color: var(--accent);
+      color: var(--light);
+      font-size: 1.11rem;
+      font-weight: 900;
+      border-radius: .67rem;
+      padding: 1rem 2.6rem;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+      box-shadow: 0 2px 12px 0 rgba(160,130,92,0.13);
+      border: none;
+      letter-spacing: .7px;
+      font-family: 'Montserrat', sans-serif;
     }
-    /* Footer */
+    .checkout-btn-submit:hover {
+      background: var(--secondary);
+      color: var(--primary);
+    }
+    .confirmation-section {
+      background: #faf9f7;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 10px 0 rgba(80,180,123,0.07);
+      border: 1.5px solid var(--success);
+      margin-bottom: 1.7rem;
+      padding: 1.5rem 1.3rem 1.1rem;
+      display: none;
+    }
+    .confirmation-title {
+      color: var(--success);
+      font-size: 1.45rem;
+      font-weight: 900;
+      margin-bottom: .61rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .confirmation-desc {
+      font-size: 1.11rem;
+      color: #46644d;
+      margin-bottom: .88rem;
+    }
+    .confirmation-next {
+      font-size: 1.07rem;
+      color: #6a563b;
+      margin-bottom: .61rem;
+    }
+    .confirmation-payment {
+      background: #fff;
+      border-radius: .7rem;
+      box-shadow: 0 2px 12px 0 rgba(160,130,92,0.07);
+      margin-top: .45rem;
+      padding: 1.1rem 1rem .7rem;
+    }
+    .confirmation-payment-title {
+      color: var(--primary);
+      font-size: 1.09rem;
+      font-weight: bold;
+      margin-bottom: .5rem;
+      font-family: 'Poppins', sans-serif;
+    }
+    .confirmation-payment-desc {
+      color: var(--dark);
+      font-size: 1.01rem;
+      margin-bottom: .15rem;
+    }
     .footer {
-      background: var(--footer-bg); color: var(--white); padding: 2.1rem 0 1.1rem; margin-top: 2.5rem; border-radius: var(--radius) var(--radius) 0 0;
+      background: var(--primary);
+      color: var(--light);
+      padding: 2.2rem 0 1.1rem;
+      margin-top: 2.1rem;
+      border-radius: var(--radius) var(--radius) 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .footer::before {
+      content: '';
+      position: absolute;
+      right: 0; top: -40px;
+      width: 300px; height: 300px;
+      opacity: 0.14;
+      background: url('image/LOGO.png') no-repeat center center/contain;
+      z-index: 0;
     }
     .footer-container {
-      max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-start; padding: 0 2rem;
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.1rem;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
     }
-    .footer-brand { flex: 1 1 220px; margin-bottom: 2rem;}
+    .footer-brand {
+      flex: 1 1 230px;
+      margin-bottom: 2.1rem;
+      z-index: 2;
+    }
     .footer-logo {
-      display: flex; align-items: center; font-size: 1.2rem; font-weight: 900; gap: .5rem; margin-bottom: 0.45rem; color: var(--accent);
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+      font-weight: 900;
+      gap: .53rem;
+      margin-bottom: 0.39rem;
+      color: var(--secondary);
+      font-family: 'Playfair Display', serif;
     }
-    .footer-logo img { width: 32px; height: 32px; }
-    .footer-desc { color: #c6a673; font-size: 0.98rem; margin-bottom: .6rem;}
-    .footer-bottom { text-align: center; font-size: .95rem; color: #f2e9db; margin-top: 1.5rem; opacity: .85;}
+    .footer-logo img {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+    }
+    .footer-desc {
+      color: #fff4e3;
+      font-size: 1rem;
+      margin-bottom: .63rem;
+    }
+    .footer-links-group {
+      flex: 1 1 160px;
+      margin-bottom: 2.1rem;
+      z-index: 2;
+    }
+    .footer-links-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      margin-bottom: .33rem;
+      letter-spacing: .5px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: .38rem;
+    }
+    .footer-link {
+      color: #fff4e3;
+      font-size: .98rem;
+      transition: color .2s;
+      opacity: .92;
+    }
+    .footer-link:hover {
+      color: var(--accent);
+    }
+    .footer-bottom {
+      text-align: center;
+      font-size: .98rem;
+      color: #fff4e3;
+      margin-top: 1.35rem;
+      opacity: .87;
+      position: relative;
+      z-index: 2;
+    }
+    .footer-bottom a {
+      color: #fff;
+      font-weight: 700;
+      text-decoration: underline;
+      transition: color .2s;
+    }
+    .footer-bottom a:hover {
+      color: var(--secondary);
+    }
     @media (max-width: 900px) {
-      .footer-container { flex-direction: column; gap: 2.2rem; align-items: flex-start; }
+      .footer-container { flex-direction: column; gap: 2.3rem; align-items: flex-start; }
     }
-    @media (max-width: 700px) {
-      .main { padding: 1.2rem .5rem 2rem;}
-      .footer-container { padding: 0 1rem; }
-      .summary-container { padding: 1.3rem .7rem 1.4rem .7rem;}
+    @media (max-width: 600px) {
+      main { padding: 1rem .7rem 1.5rem; }
+      .footer { padding: 1.22rem 0 .95rem; }
+      .footer-container { padding: 0 1.2rem; }
+      .footer-logo img { width: 24px; height: 24px; }
     }
     @media (max-width: 500px) {
-      .summary-header .summary-title { font-size: 1.18rem;}
-      main { padding-left: 0.17rem; padding-right: 0.17rem;}
-    }
-    @media (max-width: 430px) {
-      .footer-logo img { width: 24px; height: 24px;}
-      .order-list, .steps-container { padding: 1.0rem .3rem; }
-      .summary-container { padding: 1.1rem .4rem 1.2rem .4rem;}
+      main { padding: .7rem .2rem 1.1rem; }
+      .cart-list th, .cart-list td { font-size: .99rem; }
     }
   </style>
 </head>
 <body>
-  <header class="header" id="header">
+  <header>
     <nav class="nav">
       <a href="index.html" class="nav-logo">
-        <img src="image/LOGO.png" alt="SERENIQUE INTERIOR HAVEN Logo"/>
-        SERENIQUE INTERIOR HAVEN
+        <img src="image/LOGO.png" alt="Serenique Interior Haven Logo" />
+        Serenique<br>Interior Haven
       </a>
     </nav>
   </header>
   <main>
-    <div class="summary-container">
-      <div class="summary-header">
-        <i class="ri-checkbox-circle-fill"></i>
-        <div>
-          <div class="summary-title">Your Order Has Been Received!</div>
-          <div class="summary-desc">
-            Thank you for placing your order with Serenique Interior Haven. We appreciate your trust and look forward to helping you transform your space. Please review your order details below and confirm your information to proceed.
-          </div>
-        </div>
-      </div>
-      <div class="order-list">
-        <div class="order-list-title">Order Summary</div>
-        <table class="order-items-table" id="items-table">
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Qty</th>
-              <th>Subtotal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Order items injected by JS -->
-          </tbody>
-        </table>
-        <div class="order-totals">
-          <div><span class="label">Total:</span> <span id="order-total">₱0.00</span></div>
-        </div>
-      </div>
-      <div class="steps-container">
-        <div class="steps-title">What Happens Next?</div>
-        <ul class="steps-list">
-          <li>
-            A member of our team will contact you soon to <span class="steps-highlight">confirm your order details</span>. We’ll verify color options, product availability, and any special requirements.
-          </li>
-          <li>
-            Please review and confirm these details with us so we can reserve your selected items.
-          </li>
-          <li>
-            Once you confirm, we’ll send you a secure payment link based on your chosen method. <span class="steps-highlight">Payment must be completed within 24 hours</span> to guarantee your reservation.
-          </li>
-          <li>
-            Unpaid orders after 24 hours will be automatically cancelled. If you need more time, please let us know right away so we can assist.
-          </li>
-        </ul>
-      </div>
-      <button class="confirm-btn" id="confirm-btn">
-        Confirm My Order Details
-      </button>
-      <div class="confirmation-message" id="confirmation-message">
-        <i class="ri-checkbox-circle-fill" style="color:#46bc7b;margin-right:.5rem;"></i>
-        Thank you! Your confirmation has been received. Our team will reach out to verify your order details shortly. Once confirmed, you’ll receive a payment link. Please complete your payment within 24 hours to keep your reservation active.
-      </div>
+    <h1 class="summary-title">Order Overview</h1>
+    <div class="summary-desc">
+      Please review your order below. Ensure all product details and your contact information are accurate before submitting your order.<br>
+      If you have any specific requests, let us know in the notes section.
     </div>
+    <section class="cart-summary-section" id="cart-summary-section">
+      <table class="cart-list" id="summary-cart-list">
+        <thead>
+          <tr>
+            <th style="width:48px;"></th>
+            <th>Product</th>
+            <th style="text-align:right;">Qty</th>
+            <th style="text-align:right;">Price</th>
+            <th style="text-align:right;">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="summary-cart-body">
+          <!-- JS renders cart items here -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4" style="text-align:right;">Total:</td>
+            <td id="summary-cart-total" style="text-align:right;">₱0.00</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+    <section class="checkout-form-section" id="checkout-form-section">
+      <form id="checkout-form" autocomplete="off">
+        <div class="form-title">Customer Details</div>
+        <div class="checkout-form-group">
+          <label for="customer-name" class="checkout-form-label">Full Name</label>
+          <input type="text" id="customer-name" class="checkout-form-input" name="customer-name" required maxlength="80" autocomplete="name" />
+        </div>
+        <div class="checkout-form-group">
+          <label for="customer-address" class="checkout-form-label">Delivery Address</label>
+          <textarea id="customer-address" name="customer-address" class="checkout-form-textarea" rows="2" required maxlength="180"></textarea>
+        </div>
+        <div class="checkout-form-group">
+          <label for="customer-contact" class="checkout-form-label">Mobile Number</label>
+          <input type="tel" id="customer-contact" class="checkout-form-input" name="customer-contact" pattern="09\d{9,11}|(\+63\d{10,12})" maxlength="15" required autocomplete="tel" />
+        </div>
+        <div class="checkout-form-group">
+          <label for="customer-payment" class="checkout-form-label">Preferred Payment Method</label>
+          <select id="customer-payment" name="customer-payment" class="checkout-form-select" required>
+            <option value="" disabled selected hidden>Select a payment method</option>
+            <option value="gcash">GCash</option>
+            <option value="bank">Bank Transfer</option>
+            <option value="cod">Cash on Delivery</option>
+          </select>
+        </div>
+        <div class="checkout-form-group">
+          <label for="customer-notes" class="checkout-form-label">Order Notes <span style="color:#ab9a77;font-weight:400;">(Optional)</span></label>
+          <textarea id="customer-notes" name="customer-notes" class="checkout-form-textarea" rows="2" maxlength="120" placeholder="Color preference, delivery instructions, etc."></textarea>
+        </div>
+        <button type="submit" class="checkout-btn-submit" id="checkout-btn-submit">
+          Submit Order
+        </button>
+      </form>
+    </section>
+    <section class="confirmation-section" id="confirmation-section">
+      <div class="confirmation-title"><i class="ri-checkbox-circle-line" style="color:var(--success);margin-right:.3rem;"></i>Order Received!</div>
+      <div class="confirmation-desc">
+        Thank you for placing your order with Serenique Interior Haven.<br>
+        A member of our team will reach out shortly via mobile or message to confirm your product selections, colors, and availability.<br>
+        Please review and confirm these details when contacted to proceed.
+      </div>
+      <div class="confirmation-next">
+        Once you've confirmed your order with our team, you will be sent a secure payment link matching your selected payment method.<br>
+        <span style="color:#e05b5b; font-weight:700;">Please complete your payment within 24 hours</span> to avoid automatic order cancellation.<br>
+        If you have any questions, please let us know—we’re here to assist you!
+      </div>
+      <div class="confirmation-payment">
+        <div class="confirmation-payment-title">Next Steps</div>
+        <div class="confirmation-payment-desc">
+          1. Wait for our team to contact you for order verification.<br>
+          2. Confirm your product choices and delivery details.<br>
+          3. Receive your payment link and complete payment within 24 hours.<br>
+          4. Once payment is confirmed, your order will be processed for delivery.<br>
+        </div>
+        <div class="confirmation-payment-desc" style="color:#b29272;font-size:.98rem;">
+          Your trust means a lot to us. Thank you for choosing Serenique Interior Haven!
+        </div>
+      </div>
+    </section>
   </main>
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="image/LOGO.png" alt="SERENIQUE INTERIOR HAVEN Logo"/>
-          SERENIQUE INTERIOR HAVEN
+          <img src="image/LOGO.png" alt="Serenique Interior Haven Logo" />
+          Serenique Interior Haven
         </div>
         <div class="footer-desc">
-          PUROK PULO 1, BARANGAY 8, CAVITE CITY, REGION IV-A, 4100, PHILIPPINES<br>
-          Email: <a href="mailto:contact@sereniqueinterior.living" style="color:var(--accent);">contact@sereniqueinterior.living</a><br>
-          Phone: <a href="tel:+639196872451" style="color:var(--accent);">+63 919 687 2451</a><br>
-          BIR/VAT: 968-371-502-000<br>Domain: sereniqueinterior.living
+          Purok Pulo 1, Barangay 8, Cavite City, Region IV-A, 4100, Philippines<br>
+          Business Reg. No.: 968-371-502-000
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-links-title">Company</div>
+        <div class="footer-links">
+          <a href="index.html#about" class="footer-link">About Us</a>
+          <a href="index.html#shop" class="footer-link">Products</a>
+          <a href="index.html#contact" class="footer-link">Contact</a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <div class="footer-links-title">Legal</div>
+        <div class="footer-links">
+          <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+          <a href="terms.html" class="footer-link">Terms of Service</a>
+          <a href="refund-policy.html" class="footer-link">Refund Policy</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; <span id="footer-year"></span> SERENIQUE INTERIOR HAVEN — Pulo 1, Brgy. 8, Cavite City • +63 919 687 2451 • contact@sereniqueinterior.living<br>
-      BIR/VAT: 968-371-502-000 • Domain: sereniqueinterior.living<br>
-      <span style="font-size:.90rem;opacity:.85;">All product images are for reference only. Actual finishes and availability may vary. Thank you for choosing us.</span>
+      &copy; <span id="footer-year"></span> Serenique Interior Haven | Philippine Business Reg. No.: 968-371-502-000<br>
+      All content &copy; 2025 Serenique Interior Haven. Proudly Filipino.<br>
+      <span style="font-size:0.98rem;opacity:0.88;">“Design Your Space, Define Your Style.”</span>
     </div>
   </footer>
   <script>
-    // --- Order summary demo data (simulate cart/order, replace as needed) ---
-    // In production, replace this with dynamic cart/order data retrieval.
-    const orderedItems = JSON.parse(localStorage.getItem('serenique_cart')) || [
-      {
-        name: "Custom Sofa",
-        qty: 1,
-        price: 18999.00,
-        img: "image/PICTURES 1.png"
-      },
-      {
-        name: "Accent Chair",
-        qty: 2,
-        price: 6399.00,
-        img: "image/PICTURES 3.png"
-      }
-    ];
+    // Dummy product data for mapping cart IDs to names/images (should match shop page)
+    const productCatalog = {
+      1: { name: "Modern Sofa Set", img: "image/PICTURES 1.png", price: 16999.00 },
+      2: { name: "Wooden Dining Table Set", img: "image/PICTURES 2.png", price: 11299.00 },
+      3: { name: "Accent Chair", img: "image/PICTURES 3.png", price: 3499.00 },
+      4: { name: "Solid Wood Bed Frame", img: "image/PICTURES 4.png", price: 8990.00 },
+      5: { name: "Abstract Wall Art", img: "image/PICTURES 5.png", price: 1099.00 },
+      6: { name: "Decorative Wall Mirror", img: "image/PICTURES 6.png", price: 2199.00 },
+      7: { name: "Ceramic Tableware Set", img: "image/PICTURES 7.png", price: 1799.00 }
+    };
 
-    function renderOrderItems() {
-      const tbody = document.querySelector("#items-table tbody");
-      tbody.innerHTML = '';
-      let total = 0;
-      orderedItems.forEach(item => {
-        const subtotal = item.price * item.qty;
-        total += subtotal;
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>
-            <div style="display:flex;align-items:center;gap:.7rem;">
-              <img src="${item.img}" alt="${item.name}" style="width:38px;height:38px;object-fit:contain;">
-              <span>${item.name}</span>
-            </div>
-          </td>
-          <td>${item.qty}</td>
-          <td>₱${subtotal.toLocaleString(undefined, {minimumFractionDigits:2})}</td>
-        `;
-        tbody.appendChild(tr);
-      });
-      document.getElementById('order-total').textContent = '₱' + total.toLocaleString(undefined, {minimumFractionDigits:2});
+    // Load cart from localStorage (simulate)
+    function getCart() {
+      try {
+        const raw = localStorage.getItem('checkoutCart');
+        if (!raw) return [];
+        const items = JSON.parse(raw);
+        if (!Array.isArray(items)) return [];
+        // Filter only valid products
+        return items.filter(item => productCatalog[item.id]);
+      } catch { return []; }
     }
 
-    // Confirmation Button handler
-    document.addEventListener('DOMContentLoaded', function() {
-      renderOrderItems();
+    function renderCartSummary() {
+      const cart = getCart();
+      const tbody = document.getElementById('summary-cart-body');
+      const totalCell = document.getElementById('summary-cart-total');
+      tbody.innerHTML = '';
+      let total = 0;
+      if (cart.length === 0) {
+        tbody.innerHTML = `<tr class="empty-cart-row"><td colspan="5">Your cart is empty. Please <a href="index.html#shop">browse our products</a>.</td></tr>`;
+        totalCell.textContent = "₱0.00";
+        document.getElementById('checkout-form-section').style.display = 'none';
+      } else {
+        cart.forEach(item => {
+          const product = productCatalog[item.id];
+          const sub = product.price * item.qty;
+          total += sub;
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><img src="${product.img}" alt="${product.name}" /></td>
+            <td>${product.name}</td>
+            <td style="text-align:right;">${item.qty}</td>
+            <td style="text-align:right;">₱${product.price.toLocaleString()}</td>
+            <td style="text-align:right;">₱${sub.toLocaleString(undefined, {minimumFractionDigits:2})}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+        totalCell.textContent = `₱${total.toLocaleString(undefined, {minimumFractionDigits:2})}`;
+        document.getElementById('checkout-form-section').style.display = '';
+      }
+    }
+
+    // Handle form submission
+    document.addEventListener("DOMContentLoaded", function() {
+      renderCartSummary();
       document.getElementById('footer-year').textContent = new Date().getFullYear();
-      const confirmBtn = document.getElementById('confirm-btn');
-      const confirmationMessage = document.getElementById('confirmation-message');
-      confirmBtn.addEventListener('click', function() {
-        confirmBtn.style.display = 'none';
-        confirmationMessage.classList.add('show');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+      const form = document.getElementById('checkout-form');
+      const confirmation = document.getElementById('confirmation-section');
+      form && form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Validate fields
+        let valid = true;
+        ['customer-name', 'customer-address', 'customer-contact', 'customer-payment'].forEach(id => {
+          const el = document.getElementById(id);
+          if (!el.value.trim()) valid = false;
+        });
+        if (!valid) return;
+        // Hide form, show confirmation
+        form.style.display = 'none';
+        confirmation.style.display = 'block';
+        // Optionally clear cart (simulate only)
+        // localStorage.removeItem('checkoutCart');
       });
     });
   </script>
